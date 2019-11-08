@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +14,13 @@
 */
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
-const Route = use('Route')
+const Route = use('Route');
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+const Env = use('Env');
+
+Route.group(() => {
+  Route.get('/', () => {
+    return { success: `Server running on ${Env.get('HOST')} in port: ${Env.get('PORT')}` }
+  });
+  Route.resource('moradores', 'DwellerController');
+}).prefix('api');
