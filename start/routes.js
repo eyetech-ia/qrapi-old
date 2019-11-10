@@ -23,4 +23,5 @@ Route.group(() => {
     return { success: `Server running on ${Env.get('HOST')} in port: ${Env.get('PORT')}` }
   });
   Route.resource('moradores', 'DwellerController');
+  Route.resource('apartamentos', 'ApartmentController');
 }).prefix('api');
