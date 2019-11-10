@@ -6,5 +6,8 @@ tmp
 
 # Environment variables, never commit this file
 
+#Unecessary Folders
+.idea
+
 # The development sqlite file
 database/*.sqlite
