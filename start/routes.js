@@ -17,11 +17,16 @@
 const Route = use('Route');
 
 const Env = use('Env');
-
+Route.get('/', ({ response }) => {
+  return response.redirect('/api')
+});
 Route.group(() => {
   Route.get('/', () => {
-    return { success: `Server running on ${Env.get('HOST')} in port: ${Env.get('PORT')}` }
+    return {
+      success: `Server running on ${Env.get('HOST')} in port: ${Env.get('PORT')}`
+    }
   });
   Route.resource('moradores', 'DwellerController');
   Route.resource('apartamentos', 'ApartmentController');
+  Route.resource('veiculos', 'VehicleController');
 }).prefix('api');
